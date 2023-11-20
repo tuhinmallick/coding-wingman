@@ -121,8 +121,7 @@ def generate_paginated_response(results, char_limit: int = 500):
 
     # Generator function to yield paginated results
     def paginated_json_generator():
-        for page in paginated_result:
-            yield page
+        yield from paginated_result
 
     return StreamingResponse(paginated_json_generator(), media_type="application/json")
 
